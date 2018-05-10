@@ -66,7 +66,25 @@ try:
     for row in rows:
         print(row[0])
 
+
+    sql2 = "SELECT item.* FROM item"
+    print(sql2)
+
+    stmt.execute(sql2)
+    rows = stmt.fetchall()
+
+    for row in rows:
+        print(rows)
+
+    insert_sql = "INSERT INTO item (uid , code , name , kakaku) VALUES (%s, %s, %s, %s)"
+    insert_data = (2, 2, 2222, 5040)
+    stmt.execute(insert_sql, insert_data)
+    dbh.commit()
+
     stmt.close()
+    dbh.close()
+
+#    rows = stmt.fetchall()
 
 
 except (mysql.connector.errors.ProgrammingError) as e:
